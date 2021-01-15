@@ -1,0 +1,27 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: root
+  # 定位模板的目录
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+
+# pagehelper   
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+
+#spring-boot整合mybatis
+mybatis:
+  #config-location: classpath:/mapper/config/mybatisConfig.xml #可以注射掉,没用到该配置文件
+  mapper-locations: classpath:/sqlmap/*Mapper.xml
+  type-aliases-package: com.example.demo.model
+
+
